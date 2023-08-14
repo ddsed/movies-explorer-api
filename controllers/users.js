@@ -13,15 +13,11 @@ const createUser = (req, res, next) => {
       email: req.body.email,
       password: hash,
       name: req.body.name,
-      about: req.body.about,
-      avatar: req.body.avatar,
     }))
     .then((user) => {
       res.status(201).send({
         email: user.email,
         name: user.name,
-        about: user.about,
-        avatar: user.avatar,
       });
     })
     .catch((err) => {
