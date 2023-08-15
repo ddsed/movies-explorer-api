@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
 const cors = require('cors');
+const limiter = require('./middlewares/rateLimit');
 const router = require('./routes/index');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb');
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, URL_MONGO = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
+mongoose.connect(URL_MONGO);
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(requestLogger);
 
 app.use(helmet());
+app.use(limiter);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
