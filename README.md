@@ -1,9 +1,9 @@
 # movies-explorer-api
-Репозиторий для бэкенда проекта `Movies Explorer` – сервис, в котором можно найти фильмы по запросу и сохранить в личном кабинете.
+Repository for the backend part of `Movies Explorer` project – a service for searching movies and saving them in your personal library.
 
-Адрес репозитория: https://github.com/ddsed/movies-explorer-api
+Repo address: https://github.com/ddsed/movies-explorer-api
 
-## Ссылки на проект
+## Links
 
 IP 158.160.66.146
 
